@@ -11,6 +11,8 @@ services:
       - db
   db:
     image: mariadb
+    ports:
+      - 3306:3306
     container_name: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -25,4 +27,6 @@ services:
     ports:
       - 8080:8080
     environment:
-      - PMA_ARBITRARY=1
+      PMA_HOST: db
+      PMA_USER: bibs
+      PMA_PASSWORD: bibsmikro2024
