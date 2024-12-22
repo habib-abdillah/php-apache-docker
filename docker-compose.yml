@@ -19,10 +19,10 @@ services:
       MYSQL_PASSWORD: mypassword
     volumes:
       - ./mysql:/var/lib/mysql
-  adminer:
-    image: adminer
-    container_name: adminer
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
     ports:
-      - "8080:8080"
-    depends_on:
-      - db
+      - 8080:8080
+    environment:
+      - PMA_ARBITRARY=1
